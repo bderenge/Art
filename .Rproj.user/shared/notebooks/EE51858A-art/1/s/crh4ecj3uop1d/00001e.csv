@@ -1,0 +1,5 @@
+"0","canvas_strokes(colors = colorPalette(""tuscany1"")) %>% saveCanvas(""strokes1.png"")
+"
+"2","Error in canvas_strokes(colors = colorPalette(""tuscany1"")) %>% saveCanvas(""strokes1.png"") : 
+  could not find function ""%>%""
+"

@@ -1,0 +1,47 @@
+---
+title: "Untitled"
+author: "Ben Derenge"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+install.packages("aRtsy")
+
+library(aRtsy)
+```
+
+
+```{r}
+artwork <- canvas_strokes(colors = c("black", "white"))
+saveCanvas(artwork, filename = "myArtwork.png")
+
+
+canvas_strokes(colors = colorPalette("tuscany1"))
+
+canvas_strokes(colors = colorPalette("tuscany1"))
+
+canvas_collatz(colors = c("red", "blue"))
+
+canvas_forest(colors = c("red", "blue"))
+
+aRtsy::canvas_flame(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))
+
+
+canvas_turmite(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))
+
+canvas_recaman(colors = c("#1c77c3","#39a9db","#40bcd8","#f39237","#d63230"))
+
+
+
+canvas_turmite(colors = colorPalette("vrolik3"))
+
+```
+

@@ -1,0 +1,60 @@
+---
+title: "Untitled"
+author: "Ben Derenge"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+install.packages("aRtsy")
+
+library(aRtsy)
+pacman::p_load(dplyr)
+```
+
+
+
+#palletes
+
+```{r}
+colorPalette("random", n=3)
+
+names <- c(
+        "blackwhite", "bell", "boogy1", "boogy2", "boogy3", "dark1", "dark2", "dark3", "flora", "gogh", "house", "jasp", "jfa", "jungle",
+        "klimt", "kpd", "lava", "nature", "mixer1", "mixer2", "mixer3", "mixer4", "neon1", "neon2", "origami", "retro1", "retro2",
+        "retro3", "retro4", "sooph", "sky", "tuscany1", "tuscany2", "tuscany3", "vrolik1", "vrolik2", "vrolik3", "vrolik4", "vrolik5"
+      )
+```
+
+```{r}
+artwork <- canvas_strokes(colors = c("black", "white"))
+saveCanvas(artwork, filename = "myArtwork.png")
+
+
+canvas_strokes(colors = colorPalette("tuscany1")) %>% saveCanvas("strokes1.png")
+canvas_strokes(colors = colorPalette("tuscany1"))%>% saveCanvas("strokes2.png")
+
+canvas_collatz(colors = c("red", "blue"))
+
+canvas_forest(colors = c("red", "blue"))
+
+aRtsy::canvas_flame(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))
+
+
+canvas_turmite(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))
+
+canvas_recaman(colors = c("#1c77c3","#39a9db","#40bcd8","#f39237","#d63230"))
+
+
+
+canvas_turmite(colors = colorPalette("vrolik3"))
+
+```
+
