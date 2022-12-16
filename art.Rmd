@@ -31,6 +31,21 @@ names <- c(
         "klimt", "kpd", "lava", "nature", "mixer1", "mixer2", "mixer3", "mixer4", "neon1", "neon2", "origami", "retro1", "retro2",
         "retro3", "retro4", "sooph", "sky", "tuscany1", "tuscany2", "tuscany3", "vrolik1", "vrolik2", "vrolik3", "vrolik4", "vrolik5"
       )
+
+
+name <- sample(names, 1)
+
+rand_pal <- function(){
+  names <- c(
+        "blackwhite", "bell", "boogy1", "boogy2", "boogy3", "dark1", "dark2", "dark3", "flora", "gogh", "house", "jasp", "jfa", "jungle",
+        "klimt", "kpd", "lava", "nature", "mixer1", "mixer2", "mixer3", "mixer4", "neon1", "neon2", "origami", "retro1", "retro2",
+        "retro3", "retro4", "sooph", "sky", "tuscany1", "tuscany2", "tuscany3", "vrolik1", "vrolik2", "vrolik3", "vrolik4", "vrolik5"
+      )
+  t <- sample(names, 1)
+  cat(t)
+  colorPalette(t)
+}
+
 ```
 
 ```{r}
@@ -39,22 +54,47 @@ saveCanvas(artwork, filename = "myArtwork.png")
 
 
 canvas_strokes(colors = colorPalette("tuscany1")) %>% saveCanvas("strokes1.png")
-canvas_strokes(colors = colorPalette("tuscany1"))%>% saveCanvas("strokes2.png")
+canvas_strokes(colors = colorPalette(sample(names, 1)))%>% saveCanvas("strokes2.png")
 
-canvas_collatz(colors = c("red", "blue"))
+canvas_collatz(colors = c("red", "blue")) %>% saveCanvas("collatz1.png")
 
-canvas_forest(colors = c("red", "blue"))
+#slow
+canvas_forest(colors = colorPalette(sample(names, 1))) %>% saveCanvas("RF1.png")
+```
 
+
+
+```{r}
 aRtsy::canvas_flame(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))
 
+aRtsy::canvas_flame(colors = colorPalette(sample(names, 1)))
+```
+```{r}
+canvas_turmite(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))%>% saveCanvas("turmite1.png")
 
-canvas_turmite(colors = c("#ac80a0", "#89aae6", "#3685b5", "#0471a6", "#061826"))
-
-canvas_recaman(colors = c("#1c77c3","#39a9db","#40bcd8","#f39237","#d63230"))
 
 
+canvas_recaman(colors = c("#1c77c3","#39a9db","#40bcd8","#f39237","#d63230"))  %>% saveCanvas("recaman.png")
 
-canvas_turmite(colors = colorPalette("vrolik3"))
+canvas_recaman(colors = colorPalette(sample(names, 1)))  %>% saveCanvas("recaman.png")
 
+
+canvas_turmite(colors = colorPalette("vrolik3")) %>% saveCanvas("turmite2.png")
+
+```
+
+
+```{r}
+{a <- canvas_ribbons(colors = colorPalette("neon1"), background = "#264653", triangle = F) 
+a}
+
+saveCanvas(a, "ribbons.png")
+```
+
+
+```{r}
+#slow
+temp <- canvas_mosaic(colors = colorPalette("retro2"), n = 400)
+saveCanvas(temp, "canvas.png")
 ```
 
