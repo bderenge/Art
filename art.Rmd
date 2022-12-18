@@ -13,10 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
-install.packages("aRtsy")
+#install.packages("aRtsy")
 
 library(aRtsy)
-pacman::p_load(dplyr)
+pacman::p_load(dplyr, aRtsy)
 ```
 
 
@@ -96,5 +96,61 @@ saveCanvas(a, "ribbons.png")
 #slow
 temp <- canvas_mosaic(colors = colorPalette("retro2"), n = 400)
 saveCanvas(temp, "canvas.png")
+```
+
+# Functional
+```{r}
+set.seed(1)
+formula <- list(
+  x = quote(x_i^2 - sin(y_i^2)),
+  y = quote(y_i^3 - cos(x_i^2))
+)
+canvas_function(colors =rand_pal(),
+                by= .01,
+                polar = T,
+                formula = formula)
+
+{
+  canvas_function(colors =rand_pal(),
+                by= .1,
+                background = "white",
+                polar = F,
+                formula = list(
+  x = quote(y_i),
+  y = quote(1/y_i + x_i)
+)
+
+)
+}
+```
+```{r}
+{
+  canvas_function(colors = "black",
+                by= .1,
+                background = "white",
+                polar = T,
+                formula = list(
+  x = quote(sin(y_i) + x_i),
+  y = quote(1/y_i)
+)
+
+)
+}
+
+canvas_function(colors = rainbow(8), formula = formula) %>% saveCanvas("formula_rainbow.png")
+```
+#stripes
+```{r}
+canvas_stripes(colors = colorPalette("random", n = 10))
+
+canvas_stripes(colors = colorPalette("random", n = 10), n =400, H =1, burnin = 100)
+```
+
+
+
+
+#Meshes
+```{r}
+canvas_mesh(color = colorPalette("mixer1"), background = "black")
 ```
 
